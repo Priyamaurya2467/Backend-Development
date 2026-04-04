@@ -1,0 +1,43 @@
+<%- include('partials/head', { pagetitle: 'Home' }) %>
+</head>
+
+<body>
+  <%- include('partials/nav') %>
+
+<main class="container mx-auto p-8 mt-10">
+    <h2 class="text-3xl text-red-500 font-bold text-center mb-6">
+        Here are our registered homes:
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <% registeredHomes.forEach(home => { %>
+            <div class="bg-white border border-gray-300 rounded-lg shadow-md hover:shadow-xl transition duration-300 p-6 flex flex-col">
+                
+                <img
+                    src="<%= home.imageUrl %>"
+                    alt="House Image"
+                    class="w-full h-48 object-cover rounded-md mb-4"
+                />
+
+                <div class="flex justify-between items-start mb-3">
+                    <h2 class="text-lg font-bold text-gray-800 flex-1">
+                        <%= home.houseName %>
+                    </h2>
+                    <p class="text-yellow-500 font-semibold text-sm ml-2">
+                         <%= home.rating %>⭐
+                    </p>
+                </div>
+
+                <p class="text-gray-600 text-sm mb-2">
+                    📍 <%= home.location %>
+                </p>
+
+                <p class="text-gray-800 font-semibold mt-auto">
+                    $<%= home.pricePerNight %>/night
+                </p>
+            </div>
+        <% }) %>
+    </div>
+</m ain>
+</body>
+</html>
