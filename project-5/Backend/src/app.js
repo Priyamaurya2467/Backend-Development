@@ -5,7 +5,6 @@ app.use(cors())
 const qnaModel = require('./model/qnamodel')
 app.use(express.json())
 
-
 app.post('/addqna' , async(req,res)=>{
     try{
         const {question,answer} = req.body;
@@ -16,7 +15,6 @@ app.post('/addqna' , async(req,res)=>{
         console.log(error)
     }
 })
-
 
 app.get('/getqna',async(req,res)=>{
     try{
